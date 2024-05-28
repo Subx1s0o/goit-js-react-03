@@ -14,7 +14,7 @@ const validationSchema = Yup.object().shape({
     .min(4, "Too Short!")
     .max(30, "Too Long!")
     .required("Required")
-    .matches(/^\d+$/, "Phone must be a number"),
+    .matches(/^[+\d\s]+$/, "Phone must be a number"),
 });
 
 const nameId = nanoid();
