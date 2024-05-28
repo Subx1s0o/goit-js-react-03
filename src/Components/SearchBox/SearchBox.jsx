@@ -5,7 +5,13 @@ export default function SearchBox({ inputValue, onChange }) {
     <div>
       <label className={css.search} htmlFor="search">
         Search Your Contacts
-        <input type="text" value={inputValue} id="search" onChange={onChange} />
+        <input
+          className={css.input}
+          type="text"
+          value={inputValue}
+          id="search"
+          onChange={onChange}
+        />
       </label>
     </div>
   );

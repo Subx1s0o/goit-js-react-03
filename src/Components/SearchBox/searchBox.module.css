@@ -4,3 +4,10 @@
   gap: 3px;
   margin-bottom: 40px;
 }
+.input {
+  height: 30px;
+  border-radius: 4px;
+  padding: 0 15px;
+  border: 1px solid black;
+  outline: none;
+}

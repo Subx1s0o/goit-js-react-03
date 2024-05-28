@@ -17,6 +17,9 @@ const validationSchema = Yup.object().shape({
     .matches(/^\d+$/, "Phone must be a number"),
 });
 
+const nameId = nanoid();
+const phoneId = nanoid();
+
 export default function ContactForm({ onAdd }) {
   const handleSubmit = (values, { resetForm }) => {
     onAdd({
@@ -33,11 +36,16 @@ export default function ContactForm({ onAdd }) {
         onSubmit={handleSubmit}
         validationSchema={validationSchema}
       >
-        {({ isValid }) => (
+        {({ isValid, values }) => (
           <Form className={css.form}>
-            <label className={css.label} htmlFor="name">
+            <label className={css.label} htmlFor={nameId}>
               Name
-              <Field id="name" type="text" name="name" />
+              <Field
+                id={nameId}
+                className={css.input}
+                type="text"
+                name="name"
+              />
               <ErrorMessage
                 name="name"
                 component="div"
@@ -45,9 +53,14 @@ export default function ContactForm({ onAdd }) {
               />
             </label>
 
-            <label className={css.label} htmlFor="phone">
+            <label className={css.label} htmlFor={phoneId}>
               Phone
-              <Field id="phone" type="text" name="phone" />
+              <Field
+                id={phoneId}
+                className={css.input}
+                type="text"
+                name="phone"
+              />
               <ErrorMessage
                 name="phone"
                 component="div"
@@ -55,7 +68,11 @@ export default function ContactForm({ onAdd }) {
               />
             </label>
 
-            <button type="submit" disabled={!isValid}>
+            <button
+              className={css.button}
+              type="submit"
+              disabled={!isValid || !values.name || !values.phone}
+            >
               Add
             </button>
           </Form>
