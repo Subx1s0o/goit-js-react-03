@@ -1,0 +1,17 @@
+.form {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.errors {
+  color: red;
+  font-size: 0.8em;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
