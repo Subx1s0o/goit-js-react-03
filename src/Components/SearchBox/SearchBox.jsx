@@ -1,7 +1,12 @@
+import css from "./searchBox.module.css";
+
 export default function SearchBox({ inputValue, onChange }) {
   return (
     <div>
-      <input type="text" value={inputValue} onChange={onChange} />
+      <label className={css.search} htmlFor="search">
+        Search Your Contacts
+        <input type="text" value={inputValue} id="search" onChange={onChange} />
+      </label>
     </div>
   );
 }
